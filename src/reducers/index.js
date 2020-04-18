@@ -11,7 +11,8 @@ const books = (state = [], action) => {
       const id = (state.length === 0) ? 1 : state[state.length - 1].id + 1
       return [...state, { id, ...book }];
     case 'DELETE_BOOK':
-      return state;
+      // delete state[]
+      return state.filter(book => book.id !== action.id);
     case 'DELETE_ALL_BOOKS':
       return [];
           default:
